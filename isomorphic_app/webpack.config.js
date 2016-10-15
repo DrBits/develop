@@ -41,7 +41,7 @@ module.exports = {
 	},
 	plugins,
 	output: {
-		path: `$(__dirname)/public/assets/`,
+		path: `${__dirname}/public/assets/`,
 		filename: jsName,
 		publicPath
 	},
