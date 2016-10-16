@@ -1,14 +1,31 @@
 import express from 'express';
 import React from 'react';
 import ReactDom from 'react-dom/server';
-import App from 'components/App';
+import { match, RouterContext } from 'react-router';
+import routes from './routes';
 
 const app = express();
 
 app.use((req, res) => {
-	const componentHTML = ReactDom.renderToString(<App />)
-																								
-	return res.end(renderHTML(componentHTML));
+	match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
+		// if need to make redirect
+		if (redirectLocation) {
+			return res.redirect(301, redirectLocation.pathname + redirectLocation.search);
+		}
+		
+		// something error
+		if (error) {
+			return res.status(500).send(error.message);
+		}
+		
+		if(!renderProps) {
+			return res.status(404).send('Not found');
+		}
+		
+		const componentHTML = ReactDom.renderToString(<RouterContext { ...renderProps } />);
+																									
+		return res.end(renderHTML(componentHTML));
+	});
 });
 
 const assetUrl = process.env.NODE_ENV !== 'production' ? 'http://localhost:8050' : '/';
@@ -24,7 +41,7 @@ function renderHTML(componentHTML) {
 					<link rel="stylesheet" href="${assetUrl}/public/assets/styles.css">
 				</head>
 				<body>
-					<div id="react-view"></div>
+					<div id="react-view">${componentHTML}</div>
 					<script type="application/javascript" src="${assetUrl}/public/assets/bundle.js"></script>
 				</body>
 			</html>
