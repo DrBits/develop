@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
+import LinkContainer from 'react-router-bootstrap/lib/LinkContainer';
 import Grid from 'react-bootstrap/lib/Grid';
 import Nav from 'react-bootstrap/lib/Nav';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import NavItem from 'react-bootstrap/lib/NavItem';
-import HelloWorldPage from 'components/HelloWorldPage';
 
 import './bootstrap.css';
+
+const propTypes = {
+	children: PropTypes.node
+};
 
 class App extends Component {
 	render() {
@@ -14,23 +19,29 @@ class App extends Component {
 				<Navbar>
 					<Navbar.Header>
 						<Navbar.Brand>
-							<span>Hello World</span>
+              <Link to='/'>Hello World</Link>
 						</Navbar.Brand>
 						<Navbar.Toggle />
 					</Navbar.Header>
 					<Navbar.Collapse>
 						<Nav navbar>
-							<NavItem>Time</NavItem>
-							<NavItem>Counter</NavItem>
+						  <LinkContainer to='/time'>
+						    <NavItem>Time</NavItem>
+						  </LinkContainer>
+						  <LinkContainer to='/counters'>
+						    <NavItem>Counter</NavItem>
+						  </LinkContainer>
 						</Nav>
 					</Navbar.Collapse>
 				</Navbar>
 				<Grid>
-					<HelloWorldPage />
+					{ this.props.children }
 				</Grid>
 			</div>
 		)
 	}
 }
+
+App.propTypes = propTypes;
 
 export default App;
