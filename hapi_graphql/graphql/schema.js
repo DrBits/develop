@@ -11,6 +11,7 @@ const schema = `
 
   schema {
     query: Query
+    mutation: Mutation
   }
 `;
 
