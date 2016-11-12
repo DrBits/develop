@@ -1,6 +1,7 @@
 const hapi = require('hapi');
 const mongoose = require('mongoose');
 const { apolloHapi, graphiqlHapi } = require('apollo-server');
+const { makeExecutableSchema } = require('graphql-tools');
 
 const User = require('./models/user');
 
@@ -29,6 +30,16 @@ server.register({
       pretty: true,
       schema: executableSchema,
     }),
+  },
+});
+
+server.register({
+  register: graphiqlHapi,
+  options: {
+    path: '/graphiql',
+    graphiqlOptions: {
+      endpointURL: '/graphql',
+    },
   },
 });
 
