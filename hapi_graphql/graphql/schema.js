@@ -9,6 +9,10 @@ const schema = `
     getUserByEmail(email: String!): User
   }
 
+  type Mutation {
+    createUser(email: String!): User
+  }
+
   schema {
     query: Query
     mutation: Mutation
