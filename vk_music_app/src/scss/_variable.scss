@@ -1,0 +1,18 @@
+$font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+$box-shadow-2: rgba(0, 0, 0, 0.117647) 0 1px 6px, rgba(0, 0, 0, 0.117647) 0 1px 4px;
+
+$primary-text-color: #212121;
+$primary-color-text: #fff;
+$primary-color-light: #cfd8dc;
+
+$general-background: $primary-color-text;
+$general-selected-color: $primary-color-text;
+$general-hover-background-color: transparentize($primary-color-light, 0.75);
+
+$btn-hover-background: $general-hover-background-color;
+
+$animation-duration: 450ms;
+$animation-function: cubic-bezier(0.4, 1, 0.3, 1);
+
+$player-control-box-shadow: $box-shadow-2;
