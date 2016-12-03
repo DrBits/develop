@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 
 import classes from './ripple.scss';

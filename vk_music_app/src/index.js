@@ -1,7 +1,7 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { hashHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
+import {render} from 'react-dom';
+import {hashHistory} from 'react-router';
+import {syncHistoryWithStore} from 'react-router-redux';
 
 import initialState from './store/initialState';
 import configureStore from './store/configureStore';

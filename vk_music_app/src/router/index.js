@@ -1,8 +1,7 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { Router } from 'react-router';
+import React, {Component, PropTypes} from 'react';
+import {connect} from 'react-redux';
+import {Router} from 'react-router';
 
-import App from '../containers/App/App';
 import Authorize from '../containers/Authorize/Authorize';
 
 class MyRouter extends Component {
@@ -39,9 +38,9 @@ class MyRouter extends Component {
   }
 }
 
-const mapStateToProps = ({ vk, routing }) => ({
-  authorized: vk.authorized,
-  userId: vk.userId,
+const mapStateToProps = ({vk, routing}) => ({
+  authorized: null,
+  userId: null,
   routing: routing.locationBeforeTransitions
 });
 

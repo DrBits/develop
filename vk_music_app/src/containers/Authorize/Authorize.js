@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, {Component, PropTypes} from 'react';
 
 import Scrollable from '../../components/Scrollable/Scrollable';
 import Button from '../../components/Button/Button';

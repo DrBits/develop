@@ -23,7 +23,7 @@ export default class Button extends Component {
 
         { this.props.children }
 
-        { this.props.ripple && <Riple /> }
+        { this.props.ripple && <Ripple /> }
       </button>
     );
   }
