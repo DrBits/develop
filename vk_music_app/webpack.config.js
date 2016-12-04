@@ -127,7 +127,7 @@ let config = {
 	devServer: {
 		contentBase: PATH_DIST,
 		host: 'localhost',
-		port: 8085,
+		port: 8080,
 		hot: true,
 		historyApiFallback: {
 			index: '/'
