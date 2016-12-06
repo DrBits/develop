@@ -2,6 +2,8 @@ import React, {Component, PropTypes} from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 import {connect} from 'react-redux';
 
+import {vkAuthorize} from '../../actions/vk';
+
 import Scrollable from '../../components/Scrollable/Scrollable';
 import Button from '../../components/Button/Button';
 
@@ -18,7 +20,9 @@ class Authorize extends Component {
 			<Scrollable>
 				<div className={classes.component}>
 					<h2 className={classes.title} data-text="VK Music">VK Music</h2>
-					<Button className={classes.button} ripple={true} onClick={this.props.authorize}></Button>
+					<Button className={classes.button} ripple={true} onClick={this.props.authorize}>
+						<span>Авторизоваться</span>
+					</Button>
 				</div>
 			</Scrollable>
 		);

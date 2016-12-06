@@ -10,5 +10,7 @@ export default {
 
 	ui: {
 		isLeftMenuOpen: false
-	}
+	},
+
+	users: {},
 };

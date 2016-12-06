@@ -5,7 +5,7 @@ export const {
 
 	vkAuthorize,
 	vkAuthorized,
-	vkAuthoruzeError
+	vkAuthorizeError
 } = createActions(
 	'VK_INITIALIZED',
 

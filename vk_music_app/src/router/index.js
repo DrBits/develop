@@ -3,6 +3,9 @@ import {connect} from 'react-redux';
 import {Router} from 'react-router';
 
 import Authorize from '../containers/Authorize/Authorize';
+import App from '../containers/App/App';
+import Audios from '../containers/Audios/Audios';
+import Albums from '../containers/Albums/Albums';
 
 class MyRouter extends Component {
   routes = {
@@ -12,7 +15,16 @@ class MyRouter extends Component {
       path: 'authorize',
       component: Authorize,
       onEnter: (nextState, replace) => this.onEnter(nextState, replace)
-    }]
+    }, {
+			path: ':ownerId',
+			component: App,
+			indexRoute: { component: Audios },
+			onEnter: (nextState, replace) => this.onEnter(nextState, replace),
+			childRoutes: [{
+				path: 'albums',
+				component: Albums
+			}]
+		}]
   }
 
   onEnter(nextState, replace) {
@@ -39,8 +51,8 @@ class MyRouter extends Component {
 }
 
 const mapStateToProps = ({vk, routing}) => ({
-  authorized: null,
-  userId: null,
+  authorized: vk.authorized,
+  userId: vk.userId,
   routing: routing.locationBeforeTransitions
 });
 

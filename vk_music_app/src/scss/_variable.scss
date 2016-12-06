@@ -5,8 +5,10 @@ $box-shadow-2: rgba(0, 0, 0, 0.117647) 0 1px 6px, rgba(0, 0, 0, 0.117647) 0 1px 
 $primary-text-color: #212121;
 $primary-color-text: #fff;
 $primary-color-light: #cfd8dc;
+$secondary-text-color: #727272;
 $accent-color: #009688;
 
+$box-shadow-1: rgba(0, 0, 0, 0.156863) 0 3px 10px, rgba(0, 0, 0, 0.227451) 0 3px 10px;
 $box-shadow-2: rgba(0, 0, 0, 0.117647) 0 3px 6px, rgba(0, 0, 0, 0.117647) 0 1px 4px;
 
 $general-padding: 12px;
@@ -19,10 +21,30 @@ $general-content-max-width: 1160px;
 
 $btn-hover-background: $general-hover-background-color;
 
+$header-height: 64px;
+$header-padding: $general-padding;
+$header-margin: $general-margin;
+$header-button-size: 48px;
+$header-background: $secondary-text-color;
+$header-color: $primary-color-text;
+$header-box-shadow: $box-shadow-1;
+
 $animation-duration: 450ms;
 $animation-function: cubic-bezier(0.4, 1, 0.3, 1);
 
+$player-height: 76px;
+
 $player-control-box-shadow: $box-shadow-2;
+
+$left-drawer-width: 256px;
+$left-drawer-padding: $general-padding;
+$left-drawer-margin: $general-margin;
+$left-drawer-background: $primary-text-color;
+$left-drawer-top: $header-height;
+$left-drawer-color: $primary-color-text;
+$left-drawer-bottom: $player-height;
+$left-drawer-btn-height: 48px;
+$left-drawer-box-shadow: $box-shadow-1;
 
 $authorize-color-1: $primary-text-color;
 $authorize-color-2: $accent-color;
