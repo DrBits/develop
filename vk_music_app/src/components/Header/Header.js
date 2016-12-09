@@ -8,8 +8,8 @@ import Button from '../Button/Button';
 
 import classes from './header.scss';
 
-const CloseIcon = <Close size={24} color="white" name="close"/>
-const MenuIcon = <Menu size={24} color="white" name="menu"/>
+const CloseIcon = <Close size={24} color="white" name="close"/>;
+const MenuIcon = <Menu size={24} color="white" name="menu"/>;
 
 export default class Header extends Component {
 	static propTypes = {

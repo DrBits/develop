@@ -10,7 +10,8 @@ export default class LeftDrawerList extends Component {
 		items: PropTypes.array.isRequired
 	};
 
-	render () {
+	render() {
+		console.log('items', this.props.items);
 		return (
 			<ul className={classes.list}>
 				{this.getItems()}

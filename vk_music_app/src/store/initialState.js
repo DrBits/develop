@@ -12,5 +12,7 @@ export default {
 		isLeftMenuOpen: false
 	},
 
+	entities: {},
+
 	users: {},
 };

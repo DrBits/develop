@@ -28,7 +28,7 @@ class App extends Component {
 					{this.props.children}
 				</main>
 			</section>
-		)
+		);
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
