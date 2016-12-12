@@ -12,7 +12,19 @@ export default {
 		isLeftMenuOpen: false
 	},
 
-	entities: {},
+	audios: {},
 
 	users: {},
+
+	entities: {},
+
+	player: {
+		playlist: [],
+		current: '',
+		next: '',
+		prev: '',
+		isPlaying: false,
+		isRepeating: false,
+		isShuffling: false
+	}
 };

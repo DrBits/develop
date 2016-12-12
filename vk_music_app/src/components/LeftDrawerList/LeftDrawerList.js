@@ -11,7 +11,6 @@ export default class LeftDrawerList extends Component {
 	};
 
 	render() {
-		console.log('items', this.props.items);
 		return (
 			<ul className={classes.list}>
 				{this.getItems()}

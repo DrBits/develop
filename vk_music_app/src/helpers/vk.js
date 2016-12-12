@@ -43,6 +43,26 @@ class VK {
 		});
 	};
 
+	fetchAlbums = params => {
+		const _params = {
+			...params,
+			ownerId: params.ownerId
+		};
+
+		return this.api('audio.getAlbums', _params);
+	};
+
+	fetchAudio = params => {
+		const _params = {
+			...params,
+			owner_id: params.ownerId,
+			album_id: params.album_id,
+			audio_ids: params.audioIds
+		};
+
+		return this.api('audio.get', _params);
+	}
+
 	api = (name, params = {}) => {
 		const _params = {...params};
 

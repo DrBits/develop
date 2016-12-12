@@ -25,6 +25,7 @@ export default class Essences extends Component {
 	}
 
 	render() {
+		console.log('ids', this.props.ids)
 		return (
 			<ScrollableFetchable
 				fetch={this.fetch}
@@ -61,7 +62,7 @@ export default class Essences extends Component {
 			entityId: this.props.entityId,
 			offset: isOnInitialize ? 0 : this.props.offset,
 			count: this.props.fetchCount,
-			owerId: this.props.ownerId
+			ownerId: this.props.ownerId
 		});
 	};
 }

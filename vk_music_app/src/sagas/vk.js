@@ -43,7 +43,6 @@ function* login() {
 	try {
 		const data = yield call(vk.login, VK_PERMISSION_KEY);
 		const {userId} = data;
-
 		yield put(vkAuthorized(data));
 
 		const users = yield call(vk.getUsers, [userId]);

@@ -2,8 +2,12 @@ import {createActions} from 'redux-actions';
 
 export const {
 	usersAdd,
-	usersFetchAlbums
+	usersAddMultiple,
+	usersFetchAlbums,
+	usersFetchAudios
 } = createActions(
 	'USERS_ADD',
-	'USERS_FETCH_ALBUMS'
+	'USERS_ADD_MULTIPLE',
+	'USERS_FETCH_ALBUMS',
+	'USERS_FETCH_AUDIOS'
 );

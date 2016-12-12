@@ -55,7 +55,7 @@ const mapStateToProps = ({entities, albums}, ownProps) => {
 	const ownerId = ownProps.params.ownerId;
 	const entityId = `${ownerId}--albums`;
 	const {ids, fetching, error, offset, count} = entities[entityId] || {};
-
+	console.log(entities[entityId]);
 	return ({
 		ids,
 		fetching,

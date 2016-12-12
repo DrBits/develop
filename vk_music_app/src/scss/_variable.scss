@@ -47,6 +47,29 @@ $left-drawer-bottom: $player-height;
 $left-drawer-btn-height: 48px;
 $left-drawer-box-shadow: $box-shadow-1;
 
+$audio-item-height: 60px;
+$audio-item-padding: 10px $general-padding;
+$audio-item-color: $primary-text-color;
+$audio-item-background-color: $general-hover-background-color;
+$audio-item-btn-size: 40px;
+$audio-item-btn-background: $accent-color;
+$audio-item-btn-box-shadow: $box-shadow-2;
+$audio-item-border-color: $divider-color;
+
+$audio-info-player-max-width: 400px;
+$audio-info-color: $primary-text-color;
+$audio-info-player-color: $primary-color-text;
+$audio-info-secondary-color: $secondary-text-color;
+$audio-info-secondary-player-color: $primary-color-light;
+$audio-info-padding: $general-padding;
+$audio-info-margin: $general-margin;
+$audio-info-player-background: transparentize($secondary-text-color, 0.2);
+
+$ply-pause-button-size: 40px;
+$ply-pause-button-big-size: 48px;
+$ply-pause-button-background: $accent-color;
+$ply-pause-button-box-shadow: $box-shadow-2;
+
 $friend-item-width: 33%;
 $friend-item-height: 100px;
 $friend-item-padding: $general-padding - 2px;

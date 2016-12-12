@@ -7,15 +7,20 @@ import normalizeBy, {normlizeByAndMakeCID} from '../helpers/normalizeBy';
 
 import {entitiesSet, entitiesReset, entitiesFetch, entitiesError} from '../actions/entities';
 
-import {usersFetchAlbums} from '../actions/users';
+import {usersAddMultiple, usersFetchAlbums, usersFetchAudios} from '../actions/users';
+
+import {audiosAddMultiple} from '../actions/audios';
+import {albumsAddMultiple} from '../actions/albums';
 
 export default function* () {
 	yield takeEvery([
+		usersFetchAudios.toString(),
 		usersFetchAlbums.toString()
 	], fetchByType);
 }
 
 function* fetchByType({payload}) {
+	debugger;
 	const entityId = payload.entityId;
 	const type = entityId.split('--')[1];
 	const fetchMethod = getMethodNameByType(type);
@@ -26,7 +31,8 @@ function* fetchByType({payload}) {
 		const data = yield call(vk[fetchMethod], payload);
 		const newData = getNewDataByType(type, data);
 		const newPayload = getNewPayloadByType(type, data, payload, newData.ids);
-
+		debugger;
+		yield makeSomeThinkBeforePutByType(type, newData.normalized);
 		if (payload.offset === 0) {
 			yield put(entitiesReset(newPayload));
 		} else {
@@ -40,13 +46,16 @@ function* fetchByType({payload}) {
 
 function getMethodNameByType(type) {
 	return switcher(type, {
+		audios: 'fetchAudio',
 		albums: 'fetchAlbums'
 	});
 }
 
 function getNewDataByType(type, data) {
 	return switcher(type, {
-		albums: () => normlizeByAndMakeCID(data.items, 'id', 'owner_id')
+		albums: () => normlizeByAndMakeCID(data.items, 'id', 'owner_id'),
+		audios: () => normlizeByAndMakeCID(data.items, 'id', 'owner_id'),
+		default: () => normalizeBy(data.item, 'id')
 	});
 }
 
@@ -60,6 +69,15 @@ function getNewPayloadByType(type, {count, offset}, payload, ids) {
 	};
 
 	return switcher(type, {
-		albums: ({...newPayload, ownerId})
+		albums: ({...newPayload, ownerId}),
+		audios: ({...newPayload, ownerId, albumId}),
+		default: newPayload
+	});
+}
+
+function makeSomeThinkBeforePutByType(type, normalized) {
+	return switcher(type, {
+		albums: () => put(albumsAddMultiple(normalized)),
+		audios: () => put(audiosAddMultiple(normalized))
 	});
 }

@@ -1,6 +1,11 @@
 import {handleActions} from 'redux-actions';
 
-import {entitiesSet, entitiesReset, entitiesFetch, entitiesError} from '../actions/entities';
+import {
+	entitiesSet,
+	entitiesReset,
+	entitiesFetch,
+	entitiesError
+} from '../actions/entities';
 import defaultState from '../store/initialState';
 
 export default handleActions({
