@@ -35,5 +35,5 @@ export function normalizeByAndMakeCID(arr, by, prefix) {
 	return {
 		normalized,
 		ids
-	}
+	};
 }

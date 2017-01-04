@@ -96,6 +96,7 @@ export class Audios extends Component {
 }
 
 const mapStateToProps = ({player, entities, audios}, ownProps) => {
+	console.log('ownProps', ownProps);
   const ownerId = ownProps.params.ownerId;
   const albumId = Number(ownProps.params.albumId);
   const entityId = `${albumId || ownerId}--audios`;

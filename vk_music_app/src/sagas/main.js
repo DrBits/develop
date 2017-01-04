@@ -3,7 +3,7 @@ import {call, put} from 'redux-saga/effects';
 
 import vk from '../helpers/vk';
 import switcher from '../helpers/switcher';
-import normalizeBy, {normlizeByAndMakeCID} from '../helpers/normalizeBy';
+import normalizeBy, {normalizeByAndMakeCID} from '../helpers/normalizeBy';
 
 import {entitiesSet, entitiesReset, entitiesFetch, entitiesError} from '../actions/entities';
 
@@ -13,6 +13,7 @@ import {audiosAddMultiple} from '../actions/audios';
 import {albumsAddMultiple} from '../actions/albums';
 
 export default function* () {
+	console.log('userFetchAudio', usersFetchAudios.toString());
 	yield takeEvery([
 		usersFetchAudios.toString(),
 		usersFetchAlbums.toString()
@@ -20,7 +21,6 @@ export default function* () {
 }
 
 function* fetchByType({payload}) {
-	debugger;
 	const entityId = payload.entityId;
 	const type = entityId.split('--')[1];
 	const fetchMethod = getMethodNameByType(type);
@@ -31,7 +31,6 @@ function* fetchByType({payload}) {
 		const data = yield call(vk[fetchMethod], payload);
 		const newData = getNewDataByType(type, data);
 		const newPayload = getNewPayloadByType(type, data, payload, newData.ids);
-		debugger;
 		yield makeSomeThinkBeforePutByType(type, newData.normalized);
 		if (payload.offset === 0) {
 			yield put(entitiesReset(newPayload));
@@ -53,8 +52,8 @@ function getMethodNameByType(type) {
 
 function getNewDataByType(type, data) {
 	return switcher(type, {
-		albums: () => normlizeByAndMakeCID(data.items, 'id', 'owner_id'),
-		audios: () => normlizeByAndMakeCID(data.items, 'id', 'owner_id'),
+		albums: () => normalizeByAndMakeCID(data.items, 'id', 'owner_id'),
+		audios: () => normalizeByAndMakeCID(data.items, 'id', 'owner_id'),
 		default: () => normalizeBy(data.item, 'id')
 	});
 }

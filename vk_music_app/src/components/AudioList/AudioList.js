@@ -30,7 +30,6 @@ class AudioList extends Component {
 
 	renderItem = id => {
 		const audio = this.props.audios[id];
-
 		return (
 			<AudioItem
 				key={audio.cid}

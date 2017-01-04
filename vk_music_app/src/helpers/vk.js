@@ -53,21 +53,20 @@ class VK {
 	};
 
 	fetchAudio = params => {
+		console.log('params', params);
 		const _params = {
 			...params,
 			owner_id: params.ownerId,
 			album_id: params.album_id,
 			audio_ids: params.audioIds
 		};
-
 		return this.api('audio.get', _params);
 	}
 
 	api = (name, params = {}) => {
 		const _params = {...params};
-
 		Object.keys(_params).forEach(key => {
-			const param = _params[key]
+			const param = _params[key];
 
 			if (!param && (typeof param !== 'number' || isNaN(param))) {
 				delete _params[key];
