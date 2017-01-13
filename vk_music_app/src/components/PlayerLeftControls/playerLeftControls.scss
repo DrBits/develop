@@ -1,0 +1,17 @@
+@import '../../scss/variable';
+
+.component {
+	display: flex;
+	align-items: center;
+}
+
+.prev,
+.next {
+	display: block;
+	width: $player-control-size;
+	height: $player-control-size;
+}
+
+.play {
+	margin: 0 6px;
+}

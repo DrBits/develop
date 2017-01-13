@@ -6,6 +6,7 @@ import {uiLeftMenuToggle} from '../../actions/ui';
 
 import Header from '../../components/Header/Header';
 import LeftDrawer from '../../components/LeftDrawer/LeftDrawer';
+import Player from '../Player/Player';
 
 import classes from './app.scss';
 
@@ -27,6 +28,8 @@ class App extends Component {
 				<main className={classes.content}>
 					{this.props.children}
 				</main>
+
+				<Player />
 			</section>
 		);
 	}

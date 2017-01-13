@@ -34,7 +34,15 @@ $animation-duration: 450ms;
 $animation-function: cubic-bezier(0.4, 1, 0.3, 1);
 
 $player-height: 76px;
+$player-padding: 14px $general-padding 10px $general-padding;
+$player-slider-height: 6px;
+$player-slider-background: $divider-color;
+$player-slider-background-accent: $accent-color;
+$player-background: $secondary-text-color;
+$player-box-shadow: $box-shadow-1;
+$player-volume-width: 4px;
 
+$player-control-size: 34px;
 $player-control-box-shadow: $box-shadow-2;
 
 $left-drawer-width: 256px;
