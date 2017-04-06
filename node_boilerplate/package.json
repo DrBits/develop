@@ -1,0 +1,52 @@
+{
+  "name": "node_demo",
+  "version": "1.0.0",
+  "description": "demo project",
+  "main": "index.js",
+  "author": "ilewanof@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "start": "rimraf ./dist && babel -d ./dist ./src -s && node dist/index.js",
+    "dev": "node app.js",
+    "lint:js": "eslint ./src",
+    "lint-staged": "link-staged"
+  },
+  "devDependencies": {
+    "babel-register": "^6.24.0",
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-plugin-import": "^2.2.0",
+    "lint-staged": "^3.4.0",
+    "pre-commit": "^1.2.2"
+  },
+  "link-staged": {
+    "*.js": "eslint"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": "airbnb-base",
+    "env": {
+      "node": true
+    }
+  },
+  "pre-commit": "link-staged",
+  "dependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-preset-env": "^1.2.2",
+    "babel-preset-latest": "^6.24.0",
+    "rimraf": "^2.6.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  }
+}
