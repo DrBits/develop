@@ -1,0 +1,14 @@
+{
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "env": {
+    "browser": true
+  },
+  "plugins": ["react"],
+  "extends": ["airbnb-base", "prettier", "plugin:react/recommended"]
+}
