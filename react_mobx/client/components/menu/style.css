@@ -7,6 +7,10 @@
   background-color: tomato;
 }
 
+.active {
+  left: 0;
+}
+
 .toggleBtn {
   position: absolute;
   top: 5px;
