@@ -21,3 +21,6 @@ if (module.hot) {
   });
 }
 /* eslint-enable global-require */
+function asdf(){
+  let a =x
+}
